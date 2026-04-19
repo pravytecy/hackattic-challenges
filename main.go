@@ -4,20 +4,17 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
-	//input := "#.#.#.###.#.##.#"
-	var result uint16 = 0
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	input := scanner.Text()
-	for _, ch := range input {
-		result = result << 1
-		switch ch {
-		case '#':
-			result = result | 1
-		}
+	num, err := strconv.Atoi(input)
+	if err != nil {
+		fmt.Println("Invalid number:", err)
 	}
-	fmt.Println(result)
+	day(num)
+	//fmt.Println(result)
 }
