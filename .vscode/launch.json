@@ -7,7 +7,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "${workspaceFolder}",
-            "args": ["input.txt"]
+            "args": ["inputs/input1.txt"]
         }
     ]
 }

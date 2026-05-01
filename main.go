@@ -21,7 +21,6 @@ func main() {
 	}
 	for scanner.Scan() {
 		input := scanner.Text()
-		jsonSorting(input)
+		sumOfLines(input)
 	}
-	PrintSorted()
 }
