@@ -2,19 +2,26 @@ package main
 
 import (
 	"bufio"
-	"fmt"
+	"log"
 	"os"
-	"strconv"
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	input := scanner.Text()
-	num, err := strconv.Atoi(input)
-	if err != nil {
-		fmt.Println("Invalid number:", err)
+	var scanner *bufio.Scanner
+
+	if len(os.Args) > 1 {
+		f, err := os.Open(os.Args[1])
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer f.Close()
+		scanner = bufio.NewScanner(f)
+	} else {
+		scanner = bufio.NewScanner(os.Stdin)
 	}
-	day(num)
-	//fmt.Println(result)
+	for scanner.Scan() {
+		input := scanner.Text()
+		jsonSorting(input)
+	}
+	PrintSorted()
 }
