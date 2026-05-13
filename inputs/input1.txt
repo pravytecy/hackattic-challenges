@@ -1,1 +1,1 @@
-110 0x187 300 T / d
+szWindowContentsSize
